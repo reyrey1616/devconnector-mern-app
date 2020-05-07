@@ -1,11 +1,13 @@
 const express = require('express');
 const colors = require('colors');
 const connectDB = require('./config/db');
-
 // Route imports
 
 // Initialize Express
 const app = express();
+
+// Init Middlewares
+app.use(express.json({ extended: false }));
 
 // Define Routes
 app.use('/api/users', require('./routes/api/users'));
