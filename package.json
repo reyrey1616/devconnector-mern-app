@@ -1,0 +1,19 @@
+{
+  "name": "devconnector",
+  "version": "1.0.0",
+  "description": "social network app built with MERN",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reyrey1616/devconnector-mern-app.git"
+  },
+  "author": "Rey Guidoriagao Jr.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reyrey1616/devconnector-mern-app/issues"
+  },
+  "homepage": "https://github.com/reyrey1616/devconnector-mern-app#readme"
+}
