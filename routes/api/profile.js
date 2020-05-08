@@ -289,4 +289,27 @@ router.put(
   }
 );
 
+// @route   DELETE api/profile/education/:edu_id
+// @desc    Delete education in user profile by education ID
+// @access  Private
+router.delete('/education/:edu_id', auth, async (req, res) => {
+  try {
+    const profile = await Profile.findOne({ user: req.user.id });
+
+    // get the remove index
+    const removeIndex = profile.education
+      .map((edu) => edu.id)
+      .indexOf(req.params.edu_id);
+
+    profile.education.splice(removeIndex, 1);
+
+    await profile.save();
+
+    res.status(200).json(profile);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
 module.exports = router;
