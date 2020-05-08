@@ -47,7 +47,6 @@ router.post(
 // @route   GET api/posts/
 // @desc    Get all Posts
 // @access  Private
-
 router.get('/', auth, async (req, res) => {
   try {
     // date: -1 meaning descending order by date
@@ -55,6 +54,27 @@ router.get('/', auth, async (req, res) => {
     res.json(posts);
   } catch (err) {
     console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route   GET api/posts/:id
+// @desc    Get single Post by id
+// @access  Private
+router.get('/:id', auth, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+
+    if (!post) {
+      return res.status(404).json({ msg: 'Post not found' });
+    }
+
+    res.json(post);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Post not found' });
+    }
     res.status(500).send('Server Error');
   }
 });
