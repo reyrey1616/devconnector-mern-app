@@ -9,6 +9,8 @@ import Alert from './components/layout/alert.component';
 import Register from './components/auth/register.component';
 import Login from './components/auth/login.component';
 
+import Dashboard from './components/dashboard/dashboard';
+
 import store from './store';
 import { Provider } from 'react-redux';
 import setAuthToken from './utils/setAuthToken';
@@ -33,6 +35,7 @@ const App = () => {
             <Switch>
               <Route path='/login' exact component={Login} />
               <Route path='/register' exact component={Register} />
+              <Route path='/dashboard' exact component={Dashboard} />
             </Switch>
           </section>
         </Router>
