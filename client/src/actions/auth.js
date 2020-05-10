@@ -20,10 +20,9 @@ export const register = ({ name, email, password }) => async (dispatch) => {
       payload: res.data,
     });
   } catch (error) {
-    const err = res.data.errors;
-
-    if (err) {
-      err.forEach((item) => dispatch(setAlert(err.message, 'danger')));
+    const errors = error.response.data.errors;
+    if (errors) {
+      errors.forEach((item) => dispatch(setAlert(item.msg, 'danger')));
     }
 
     dispatch({
