@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Landing = () => (
+const Landing = () => (
   <section className='landing'>
     <div className='dark-overlay'>
       <div className='landing-inner'>
@@ -21,3 +21,5 @@ export const Landing = () => (
     </div>
   </section>
 );
+
+export default Landing;

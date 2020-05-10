@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Navbar = () => (
+const Navbar = () => (
   <nav className='navbar bg-dark'>
     <h1>
       <a href='index.html'>
@@ -20,3 +20,4 @@ export const Navbar = () => (
     </ul>
   </nav>
 );
+export default Navbar;
