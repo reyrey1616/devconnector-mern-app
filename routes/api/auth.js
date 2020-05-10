@@ -8,7 +8,7 @@ const User = require('../../models/User');
 const auth = require('../../middleware/auth');
 
 // @route   GET api/auth/
-// @desc    Test route
+// @desc    get loggedin user data
 // @access  Public
 router.get('/', auth, async (req, res) => {
   try {
