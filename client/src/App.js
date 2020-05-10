@@ -1,13 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Fragment } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className='App'>
-      <h1> Dev connector </h1>
-    </div>
-  );
-}
+const App = () => (
+  <Fragment>
+    <h1> Dev connector </h1>
+  </Fragment>
+);
 
 export default App;
