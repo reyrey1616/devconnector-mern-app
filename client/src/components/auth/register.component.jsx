@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
+import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
 
-const Register = () => {
+import PropTypes from 'prop-types';
+const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,11 +23,15 @@ const Register = () => {
     e.preventDefault();
 
     if (password !== password2) {
-      console.log('Password not match');
+      setAlert('Password not match', 'danger');
     } else {
-      console.log('Success');
+      register({ name, email, password });
     }
   };
+
+  if (isAuthenticated) {
+    return <Redirect to='/' />;
+  }
   return (
     <React.Fragment>
       <h1 className='large text-primary'>Sign Up</h1>
@@ -38,7 +46,6 @@ const Register = () => {
             name='name'
             value={name}
             onChange={onChange}
-            required
           />
         </div>
         <div className='form-group'>
@@ -61,7 +68,6 @@ const Register = () => {
             name='password'
             value={password}
             onChange={onChange}
-            minLength='6'
           />
         </div>
         <div className='form-group'>
@@ -71,7 +77,6 @@ const Register = () => {
             name='password2'
             value={password2}
             onChange={onChange}
-            minLength='6'
           />
         </div>
         <input type='submit' className='btn btn-primary' value='Register' />
@@ -83,4 +88,13 @@ const Register = () => {
   );
 };
 
-export default Register;
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+export default connect(mapStateToProps, { setAlert, register })(Register);
