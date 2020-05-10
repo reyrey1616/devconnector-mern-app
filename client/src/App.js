@@ -9,7 +9,7 @@ import Alert from './components/layout/alert.component';
 import Register from './components/auth/register.component';
 import Login from './components/auth/login.component';
 
-import Dashboard from './components/dashboard/dashboard';
+import Dashboard from './components/dashboard/dashboard.component';
 
 import store from './store';
 import { Provider } from 'react-redux';
