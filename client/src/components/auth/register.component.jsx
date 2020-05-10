@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 const Register = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -20,7 +21,7 @@ const Register = () => {
     if (password !== password2) {
       console.log('Password not match');
     } else {
-      console.log(formData);
+      console.log('Success');
     }
   };
   return (
