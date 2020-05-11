@@ -38,7 +38,7 @@ export const createProfile = (formData, history, edit = false) => async (
       type: GET_PROFILE,
       payload: res.data,
     });
-    dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created'));
+    dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success'));
 
     if (!edit) {
       history.push('/dashboard');
@@ -48,6 +48,7 @@ export const createProfile = (formData, history, edit = false) => async (
     if (errors) {
       errors.forEach((item) => dispatch(setAlert(item.msg, 'danger')));
     }
+
     dispatch({
       type: PROFILE_ERROR,
       payload: {
