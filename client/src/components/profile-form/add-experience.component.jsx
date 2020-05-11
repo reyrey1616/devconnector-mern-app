@@ -21,6 +21,7 @@ const AddExperience = ({ addExperience }) => {
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
   return (
     <Fragment>
       <h1 className='large text-primary'>Add An Experience</h1>
@@ -31,32 +32,70 @@ const AddExperience = ({ addExperience }) => {
       <small>* = required field</small>
       <form className='form'>
         <div className='form-group'>
-          <input type='text' placeholder='* Job Title' name='title' required />
+          <input
+            type='text'
+            placeholder='* Job Title'
+            name='title'
+            onChange={onChange}
+            value={title}
+            required
+          />
         </div>
         <div className='form-group'>
-          <input type='text' placeholder='* Company' name='company' required />
+          <input
+            type='text'
+            placeholder='* Company'
+            name='company'
+            onChange={onChange}
+            value={company}
+            required
+          />
         </div>
         <div className='form-group'>
-          <input type='text' placeholder='Location' name='location' />
+          <input
+            type='text'
+            placeholder='Location'
+            name='location'
+            onChange={onChange}
+            value={location}
+          />
         </div>
         <div className='form-group'>
           <h4>From Date</h4>
-          <input type='date' name='from' />
+          <input type='date' name='from' onChange={onChange} value={from} />
         </div>
         <div className='form-group'>
           <p>
-            <input type='checkbox' name='current' value='' /> Current Job
+            <input
+              type='checkbox'
+              name='current'
+              checked={current}
+              onChange={() => {
+                setFormData({ ...formData, current: !current });
+                toggleDisabled(!toDateDisabled);
+              }}
+              value={current}
+            />{' '}
+            Current Job
           </p>
         </div>
         <div className='form-group'>
           <h4>To Date</h4>
-          <input type='date' name='to' />
+          <input
+            type='date'
+            name='to'
+            onChange={onChange}
+            value={to}
+            disabled={toDateDisabled ? 'disabled' : ''}
+          />
         </div>
         <div className='form-group'>
           <textarea
             name='description'
             cols='30'
             rows='5'
+            onChange={onChange}
+            value={description}
             placeholder='Job Description'
           ></textarea>
         </div>
