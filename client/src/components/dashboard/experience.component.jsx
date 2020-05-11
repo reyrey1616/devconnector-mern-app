@@ -4,6 +4,7 @@ import Moment from 'react-moment';
 import { connect } from 'react-redux';
 const Experience = ({ experience }) => {
   const experiences = experience.map((exp) => {
+    alert(exp.from);
     return (
       <tr key={exp.id}>
         <td> {exp.company}</td>
