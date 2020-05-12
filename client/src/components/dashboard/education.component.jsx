@@ -14,7 +14,7 @@ const Education = ({ education, deleteEducation }) => {
           {' '}
           <Moment format='YYYY/MM/DD' date={edu.from} />-{' '}
           {edu.to === null ? (
-            'Now'
+            ' Now'
           ) : (
             <Moment format='YYYY/MM/DD' date={edu.to} />
           )}
@@ -44,7 +44,6 @@ const Education = ({ education, deleteEducation }) => {
             <th />
           </tr>
         </thead>
-
         <tbody>{educations}</tbody>
       </table>
     </Fragment>
