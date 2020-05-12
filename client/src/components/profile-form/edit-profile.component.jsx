@@ -33,7 +33,7 @@ const EditProfile = ({
       instagram:
         loading || !profile.social.instagram ? '' : profile.social.instagram,
     });
-  }, [loading]);
+  }, [getCurrentProfile, profile, loading]);
 
   const [formData, setFormData] = useState({
     company: '',
