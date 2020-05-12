@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { setAlert } from './alert';
-import { GET_PROFILE, PROFILE_ERROR, SET_ALERT, UPDATE_PROFILE } from './types';
+import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE } from './types';
 
 // GET CURRENT USER PROFILE
 export const getCurrentProfile = () => async (dispatch) => {
@@ -118,6 +118,25 @@ export const addEducation = (formData, history) => async (dispatch) => {
       errors.forEach((item) => dispatch(setAlert(item.msg, 'danger')));
     }
 
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: {
+        msg: error.response.statusText,
+        status: error.response.status,
+      },
+    });
+  }
+};
+
+// Delete Experience
+export const deleteExperience = (id) => async (dispatch) => {
+  try {
+    const res = await axios.delete(`/api/profile/experience/${id}`);
+    dispatch({
+      type: UPDATE_PROFILE,
+      payload: res.data,
+    });
+  } catch (error) {
     dispatch({
       type: PROFILE_ERROR,
       payload: {

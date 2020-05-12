@@ -3,10 +3,9 @@ import Proptypes from 'prop-types';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 const Experience = ({ experience }) => {
-  const experiences = experience.map((exp) => {
-    alert(exp.from);
+  const experiences = experience.map((exp, key) => {
     return (
-      <tr key={exp.id}>
+      <tr key={exp._id}>
         <td> {exp.company}</td>
         <td className='hide-sm'> {exp.title}</td>
         <td>
