@@ -4,6 +4,7 @@ import Moment from 'react-moment';
 import { connect } from 'react-redux';
 const Education = ({ education }) => {
   const educations = education.map((edu) => {
+    console.log(edu.from);
     return (
       <tr key={edu._id}>
         <td> {edu.school}</td>
@@ -11,11 +12,11 @@ const Education = ({ education }) => {
         <td className='hide-sm'> {edu.fieldofstudy}</td>
         <td>
           {' '}
-          <Moment format='YYYY/MM/DD'> {edu.from} </Moment> -{' '}
+          <Moment format='YYYY/MM/DD' date={edu.from} />-{' '}
           {edu.to === null ? (
             'Now'
           ) : (
-            <Moment format='YYYY/MM/DD'> {edu.to} </Moment>
+            <Moment format='YYYY/MM/DD' date={edu.to} />
           )}
         </td>
         <td>
