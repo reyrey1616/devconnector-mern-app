@@ -136,6 +136,7 @@ export const deleteExperience = (id) => async (dispatch) => {
       type: UPDATE_PROFILE,
       payload: res.data,
     });
+    dispatch(setAlert('Experience Removed', 'success'));
   } catch (error) {
     dispatch({
       type: PROFILE_ERROR,
