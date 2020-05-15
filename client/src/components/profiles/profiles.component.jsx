@@ -8,6 +8,7 @@ const Profile = ({ getProfiles, profile: { profiles, loading } }) => {
   useEffect(() => {
     getProfiles();
   }, []);
+
   return <div></div>;
 };
 
