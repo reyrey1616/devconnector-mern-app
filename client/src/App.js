@@ -14,7 +14,7 @@ import CreateProfile from './components/profile-form/create-profile.component';
 import EditProfile from './components/profile-form/edit-profile.component';
 import AddExperience from './components/profile-form/add-experience.component';
 import AddEducation from './components/profile-form/add-education.component';
-import Profiles from './components/profile/profiles.component';
+import Profiles from './components/profiles/profiles.component';
 
 import PrivateRoute from './components/routing/PrivateRoute.component';
 
