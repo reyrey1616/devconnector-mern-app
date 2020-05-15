@@ -5,6 +5,8 @@ import Spinner from '../layout/spinner.component';
 import { getProfileById } from '../../actions/profile';
 import { Link } from 'react-router-dom';
 import ProfileTop from './profile-top.component';
+import ProfileAbout from './profile-about.component';
+
 const Profile = ({
   profile: { profile, loading },
   auth,
@@ -35,6 +37,7 @@ const Profile = ({
 
           <div className='profile-grid my-1'>
             <ProfileTop profile={profile} />
+            <ProfileAbout profile={profile} />
           </div>
         </Fragment>
       )}
