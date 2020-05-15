@@ -3,7 +3,7 @@ import Spinner from '../layout/spinner.component';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getProfiles } from '../../actions/profile';
-
+import ProfileItem from './profile-item.component';
 const Profile = ({ getProfiles, profile: { profiles, loading } }) => {
   useEffect(() => {
     getProfiles();
