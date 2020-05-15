@@ -6,6 +6,7 @@ import { getProfileById } from '../../actions/profile';
 import { Link } from 'react-router-dom';
 import ProfileTop from './profile-top.component';
 import ProfileAbout from './profile-about.component';
+import ProfileExperience from './profile-experience.component';
 
 const Profile = ({
   profile: { profile, loading },
@@ -38,6 +39,18 @@ const Profile = ({
           <div className='profile-grid my-1'>
             <ProfileTop profile={profile} />
             <ProfileAbout profile={profile} />
+            <div className='profile-exp bg-light p-2'>
+              <h2 className='text-primary'>Experience</h2>
+              {profile.experience.length > 0 ? (
+                <Fragment>
+                  {profile.experience.map((exp) => (
+                    <ProfileExperience key={exp.id} experience={exp} />
+                  ))}
+                </Fragment>
+              ) : (
+                <h4> No Experience Credentials </h4>
+              )}
+            </div>
           </div>
         </Fragment>
       )}
