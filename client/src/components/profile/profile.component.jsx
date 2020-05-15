@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import ProfileTop from './profile-top.component';
 import ProfileAbout from './profile-about.component';
 import ProfileExperience from './profile-experience.component';
+import ProfileEducation from './profile-education.component';
+import ProfileGitHub from './profile-github.component';
 
 const Profile = ({
   profile: { profile, loading },
@@ -51,6 +53,22 @@ const Profile = ({
                 <h4> No Experience Credentials </h4>
               )}
             </div>
+            <div className='profile-edu bg-light p-2'>
+              <h2 className='text-primary'>Experience</h2>
+              {profile.education.length > 0 ? (
+                <Fragment>
+                  {profile.education.map((edu) => (
+                    <ProfileEducation key={edu.id} education={edu} />
+                  ))}
+                </Fragment>
+              ) : (
+                <h4> No Education Credentials </h4>
+              )}
+            </div>
+
+            {profile.githubusername && (
+              <ProfileGitHub username={profile.githubusername} />
+            )}
           </div>
         </Fragment>
       )}
