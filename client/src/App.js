@@ -17,6 +17,8 @@ import AddEducation from './components/profile-form/add-education.component';
 import Profiles from './components/profiles/profiles.component';
 import Profile from './components/profile/profile.component';
 
+import Posts from './components/posts/posts.component';
+
 import PrivateRoute from './components/routing/PrivateRoute.component';
 
 import store from './store';
@@ -66,6 +68,9 @@ const App = () => {
                 exact
                 component={AddEducation}
               />
+
+              {/* Post routes */}
+              <PrivateRoute path='/posts' exact component={Posts} />
             </Switch>
           </section>
         </Router>
