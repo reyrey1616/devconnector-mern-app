@@ -9,6 +9,7 @@ const CommentItem = ({
   postId,
   comment: { _id, text, name, avatar, user, date },
   auth,
+  deleteComment,
 }) => {
   return (
     <div className='post bg-white p-1 my-1'>
@@ -23,6 +24,15 @@ const CommentItem = ({
         <p className='post-date'>
           Posted on <Moment date={date} format='YYYY/MM/DD' />{' '}
         </p>
+        {!auth.loading && user === auth.user._id && (
+          <button
+            className='btn btn-danger'
+            onClick={() => deleteComment(postId, _id)}
+            type='button'
+          >
+            <i className='fas fa-times'></i>
+          </button>
+        )}
       </div>
     </div>
   );
@@ -32,6 +42,7 @@ CommentItem.propTypes = {
   postId: PropTypes.number.isRequired,
   comment: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
+  deleComment: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
