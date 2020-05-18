@@ -29,7 +29,7 @@ export const addLike = (postId) => async (dispatch) => {
 
     dispatch({
       type: UPDATE_LIKES,
-      payload: postId,
+      payload: { id: postId, likes: res.data },
     });
   } catch (error) {
     dispatch({
@@ -69,7 +69,7 @@ export const deletePost = (postId) => async (dispatch) => {
 
     dispatch({
       type: DELETE_POST,
-      payload: { id: postId, likes: res.data },
+      payload: postId,
     });
 
     dispatch(setAlert('Post Removed', 'success'));
