@@ -41,3 +41,23 @@ export const addLike = (postId) => async (dispatch) => {
     });
   }
 };
+
+// REMOVE LIKE
+export const removeLike = (postId) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/posts/dislike/${postId}`);
+
+    dispatch({
+      type: UPDATE_LIKES,
+      payload: { id, likes: res.data },
+    });
+  } catch (error) {
+    dispatch({
+      type: POST_ERROR,
+      payload: {
+        msg: error.response.statusText,
+        status: error.response.status,
+      },
+    });
+  }
+};
