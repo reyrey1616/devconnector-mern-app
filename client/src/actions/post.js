@@ -28,6 +28,26 @@ export const getPosts = () => async (dispatch) => {
   }
 };
 
+// GET SINGLE POST
+export const getPost = (id) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/posts/${id}`);
+
+    dispatch({
+      type: GET_POST,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: POST_ERROR,
+      payload: {
+        msg: error.response.statusText,
+        status: error.response.status,
+      },
+    });
+  }
+};
+
 // REMOVE POSTS
 export const addLike = (postId) => async (dispatch) => {
   try {
