@@ -18,6 +18,7 @@ import Profiles from './components/profiles/profiles.component';
 import Profile from './components/profile/profile.component';
 
 import Posts from './components/posts/posts.component';
+import Post from './components/post/post.component';
 
 import PrivateRoute from './components/routing/PrivateRoute.component';
 
@@ -71,6 +72,7 @@ const App = () => {
 
               {/* Post routes */}
               <PrivateRoute path='/posts' exact component={Posts} />
+              <PrivateRoute path='/posts/:id' exact component={Post} />
             </Switch>
           </section>
         </Router>
