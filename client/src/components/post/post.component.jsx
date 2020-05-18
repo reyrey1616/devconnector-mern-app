@@ -3,13 +3,18 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getPost } from '../../actions/post';
 import Spinner from '../layout/spinner.component';
-import Moment from 'react-moment';
-
+import PostItem from '../posts/post.component';
 const Post = ({ getPost, post: { post, loading }, match }) => {
   useEffect(() => {
     getPost(match.params.id);
   }, [getPost]);
-  return loading ? <Spinner /> : <Fragment>Post</Fragment>;
+  return loading || post === null ? (
+    <Spinner />
+  ) : (
+    <Fragment>
+      <PostItem post={post} showActions={false} />
+    </Fragment>
+  );
 };
 
 Post.propTypes = {
