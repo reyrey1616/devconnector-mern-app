@@ -1,4 +1,4 @@
-import { GET_POSTS, POST_ERROR } from '.types';
+import { GET_POSTS, POST_ERROR } from './types';
 import axios from 'axios';
 import { setAlert } from './alert';
 
